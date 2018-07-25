@@ -54,6 +54,11 @@ class PubTest < MiniTest::Test
     assert_equal(false, result)
   end
 
+  def test_customer_underage__deny()
+    @pub.sell_drink(@drink3, @customer2)
+    assert_equal(3, @pub.drinks_count)
+  end
+
 
 
 end

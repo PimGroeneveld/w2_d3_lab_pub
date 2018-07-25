@@ -38,14 +38,14 @@ class PubTest < MiniTest::Test
   end
 
   def test_buy_drink()
-    @customer.buy_drink(@drink3, @pub)
+    @customer.buy_drink(@drink3, @pub, @customer)
     assert_equal(1, @customer.drink_count)
   end
 
-  # def test_cannot_buy_drink()
-  #   @customer2.buy_drink(@drink3, @pub)
-  #   assert_equal(0, @customer.drink_count)
-  # end
+  def test_cannot_buy_drink()
+    @customer2.buy_drink(@drink3, @pub, @customer2)
+    assert_equal(0, @customer2.drink_count)
+  end
 
   def test_pay_pub()
     @customer.pay_pub(@drink3, @pub)
